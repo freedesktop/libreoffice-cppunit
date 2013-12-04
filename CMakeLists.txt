@@ -14,7 +14,7 @@ include(Versioning)
 # Build options
 option(BUILD_SHARED_LIBS "Build cppunit as shared or static library" ON)
 
-if(BUILD_SHARED_LIBS)
+if(BUILD_SHARED_LIBS AND WIN32)
     add_definitions(-DCPPUNIT_BUILD_DLL)
 endif()
 
@@ -25,3 +25,6 @@ include_directories("${CMAKE_CURRENT_BINARY_DIR}/include")
 # Subdirectories
 add_subdirectory(include)
 add_subdirectory(src)
+
+# Export targets
+include(ExportTargets)

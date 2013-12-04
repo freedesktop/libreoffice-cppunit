@@ -1,0 +1,27 @@
+# - CMake config file for cppunit
+# It defines the following variables
+#  CPPUNIT_INCLUDE_DIRS - include directories for cppunit
+#  CPPUNIT_LIBRARY      - the cppunit base library
+#  CPPUNIT_LIBRARIES    - all of the cppunit libraries to link against
+#  CPPUNIT_FOUND        - the cppunit library has been found
+
+if(NOT TARGET cppunit AND NOT cppunit_BINARY_DIR)
+    # Compute paths
+    get_filename_component(CPPUNIT_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+    get_filename_component(CPPUNIT_INCLUDE_DIR
+        "${CPPUNIT_CMAKE_DIR}/@CONF_REL_INCLUDE_DIR@"
+        ABSOLUTE)
+
+    # Add the targets and dependencies
+    include("${CPPUNIT_CMAKE_DIR}/cppunitLibraryDepends.cmake")
+
+    get_target_property(_cppunit_lib_type cppunit TYPE)
+    if(${_cppunit_lib_type} EQUAL SHARED_LIBRARY AND WIN32)
+        add_definitions(-DCPPUNIT_DLL)
+    endif()
+
+    set(CPPUNIT_FOUND TRUE)
+    set(CPPUNIT_LIBRARY cppunit)
+    set(CPPUNIT_LIBRARIES ${CPPUNIT_LIBRARY})
+    message(STATUS "Found cppunit - version: @CPPUNIT_VERSION@")
+endif()

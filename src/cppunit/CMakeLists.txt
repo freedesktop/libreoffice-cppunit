@@ -81,6 +81,7 @@ endif()
 
 # Create install target
 install(TARGETS cppunit
+    EXPORT cppunitLibraryDepends
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
     RUNTIME DESTINATION bin)
