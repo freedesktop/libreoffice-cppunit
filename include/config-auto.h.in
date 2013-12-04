@@ -54,6 +54,9 @@
 /* define if the compiler supports C++ style casts */
 #cmakedefine CPPUNIT_HAVE_CPP_CAST 1
 
+/* define if the compiler does not support default arguments for template parameters */
+#cmakedefine CPPUNIT_STD_NEED_ALLOCATOR 1
+
 /* Define if you have the shl_load function. */
 #cmakedefine CPPUNIT_HAVE_SHL_LOAD 1
 

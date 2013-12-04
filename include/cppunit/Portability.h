@@ -5,24 +5,23 @@
 # define WIN32 1
 #endif
 
+/* include automatically generated configuration */
+#include <cppunit/config-auto.h>
+
 /* include platform specific config */
-#if defined(__BORLANDC__)
-#  include <cppunit/config/config-bcb5.h>
-#elif defined (_MSC_VER)
+#if defined (_MSC_VER)
 #  if _MSC_VER == 1200 && defined(_WIN32_WCE) //evc4
 #    include <cppunit/config/config-evc4.h>
 #  else
 #    include <cppunit/config/config-msvc6.h>
 #  endif
-#else
-#    include <cppunit/config-auto.h>
 #endif
 
 // Version number of package
 #ifndef CPPUNIT_VERSION 
 #define CPPUNIT_VERSION  "1.14.0"
 #endif
- 
+
 #include <cppunit/config/CppUnitApi.h>    // define CPPUNIT_API & CPPUNIT_NEED_DLL_DECL
 #include <cppunit/config/SelectDllLoader.h>
 
@@ -44,7 +43,7 @@
 # define CPPUNIT_ENABLE_CU_TEST_MACROS        0
 #endif
 
-/* Define to 1 if the preprocessor expands (#foo) to "foo" (quotes incl.) 
+/* Define to 1 if the preprocessor expands (#foo) to "foo" (quotes incl.)
    I don't think there is any C preprocess that does NOT support this! */
 #if !defined(CPPUNIT_HAVE_CPP_SOURCE_ANNOTATION)
 # define CPPUNIT_HAVE_CPP_SOURCE_ANNOTATION   1
@@ -67,7 +66,7 @@
 #if !defined(CPPUNIT_COMPILER_LOCATION_FORMAT)
 #if defined(__GNUC__) && ( defined(__APPLE_CPP__) || defined(__APPLE_CC__) )
 // gcc/Xcode integration on Mac OS X
-# define CPPUNIT_COMPILER_LOCATION_FORMAT "%p:%l: " 
+# define CPPUNIT_COMPILER_LOCATION_FORMAT "%p:%l: "
 #else
 # define CPPUNIT_COMPILER_LOCATION_FORMAT "%f:%l:"
 #endif
@@ -108,7 +107,7 @@
 #endif  // defined(CPPUNIT_NO_NAMESPACE)
 
 /*! Stringize a symbol.
- * 
+ *
  * Use this macro to convert a preprocessor symbol to a string.
  *
  * Example of usage:
@@ -134,7 +133,7 @@
  * to obtain a 'unique' identifier.
  *
  * \internal From boost documentation:
- * The following piece of macro magic joins the two 
+ * The following piece of macro magic joins the two
  * arguments together, even when one of the arguments is
  * itself a macro (see 16.3.1 in C++ standard).  The key
  * is that macro expansion of macro arguments does not

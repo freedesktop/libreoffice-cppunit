@@ -33,14 +33,6 @@
 #define CPPUNIT_NO_STREAM 1
 #define CPPUNIT_NO_ASSERT 1
 
-#define CPPUNIT_HAVE_SSTREAM 0
-
-/* Name of package */
-#ifndef CPPUNIT_PACKAGE 
-#define CPPUNIT_PACKAGE  "cppunit" 
-#endif
-
-
 // Compiler error location format for CompilerOutputter
 // See class CompilerOutputter for format.
 #undef CPPUNIT_COMPILER_LOCATION_FORMAT

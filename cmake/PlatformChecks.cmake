@@ -104,6 +104,12 @@ check_cxx_sourcefile_compiles(${PROJECT_SOURCE_DIR}/cmake/have_casts.cpp
                               CPPUNIT_HAVE_CPP_CAST)
 check_cxx_sourcefile_compiles(${PROJECT_SOURCE_DIR}/cmake/string_compare_signature.cpp
                               CPPUNIT_FUNC_STRING_COMPARE_SIZE_FIRST)
+check_cxx_sourcefile_compiles(${PROJECT_SOURCE_DIR}/cmake/have_default_template_args.cpp
+                              CPPUNIT_HAVE_DEFAULT_TEMPLATE_ARGS)
+
+if(NOT CPPUNIT_HAVE_DEFAULT_TEMPLATE_ARGS)
+    set(CPPUNIT_STD_NEED_ALLOCATOR 1 CACHE INTERNAL "Default template parameters not supported")
+endif()
 
 if(NOT CPPUNIT_FUNC_STRING_COMPARE_SIZE_FIRST)
     set(CPPUNIT_FUNC_STRING_COMPARE_STRING_FIRST 1
