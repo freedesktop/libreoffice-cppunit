@@ -87,6 +87,9 @@
 /* Define if you have the <unistd.h> header file. */
 #cmakedefine CPPUNIT_HAVE_UNISTD_H 1
 
+/* The size of a void pointer */
+#cmakedefine CPPUNIT_SIZEOF_VOID_P @CPPUNIT_SIZEOF_VOID_P@
+
 /* Name of package */
 #cmakedefine CPPUNIT_PACKAGE "@CPPUNIT_PACKAGE@"
 

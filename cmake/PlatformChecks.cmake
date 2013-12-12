@@ -121,6 +121,8 @@ if(CPPUNIT_HAVE_TYPEINFO)
                                   CPPUNIT_HAVE_RTTI)
 endif()
 
+set(CPPUNIT_SIZEOF_VOID_P ${CMAKE_SIZEOF_VOID_P} CACHE INTERNAL "Size of a void pointer")
+
 if(_unsupported_compiler)
     message(FATAL_ERROR "Your compiler does not support all features required to build cppunit!")
 endif()

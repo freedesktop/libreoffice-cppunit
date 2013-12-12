@@ -1,6 +1,10 @@
 #include <cppunit/config/SourcePrefix.h>
 #include <cppunit/XmlOutputterHook.h>
-#include <stdint.h>
+#include <cppunit/config-auto.h>
+
+#ifdef CPPUNIT_HAVE_STDINT_H
+    #include <stdint.h>
+#endif
 
 #if !defined(CPPUNIT_NO_TESTPLUGIN)
 #include <cppunit/extensions/TestFactoryRegistry.h>
@@ -8,6 +12,15 @@
 #include <cppunit/plugin/TestPlugIn.h>
 #include <cppunit/plugin/DynamicLibraryManager.h>
 
+#if !defined(CPPUNIT_HAVE_STDINT_H)
+#   if (CPPUNIT_SIZEOF_VOID_P == 4)
+        typedef unsigned long int uintptr_t;
+#   elif (CPPUNIT_SIZEOF_VOID_P == 8)
+        typedef unsigned long long uintptr_t;
+#   else
+#       error "Unsupported compiler"
+#   endif
+#endif
 
 CPPUNIT_NS_BEGIN
 
