@@ -19,6 +19,11 @@ option(BUILD_SHARED_LIBS           "Build cppunit as shared or static library"  
 option(CPPUNIT_BUILD_APIDOC        "Adds a build target for generating the API documentation" OFF)
 option(CPPUNIT_BUILD_QT_TESTRUNNER "Build the Qt test runner library"                         OFF)
 option(CPPUNIT_BUILD_EXAMPLES      "Build the examples shipped with cppunit"                  OFF)
+option(CPPUNIT_BUILD_TESTING       "Enables testing with CTest and adds a 'test' target"      OFF)
+
+if(CPPUNIT_BUILD_TESTING)
+    enable_testing()
+endif()
 
 if(BUILD_SHARED_LIBS AND WIN32)
     add_definitions(-DCPPUNIT_BUILD_DLL)
