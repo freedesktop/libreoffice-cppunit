@@ -2,20 +2,19 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # Common source files
-set(qt_example_SOURCES
+set(cppunit-qt-example_SOURCES
     ExampleTestCases.cpp
     Main.cpp
 )
 
 # Create the test runner executable
-add_executable(qt_example ${qt_example_SOURCES})
-target_link_libraries(qt_example cppunit-qttestrunner)
+add_executable(cppunit-qt-example ${cppunit-qt-example_SOURCES})
+target_link_libraries(cppunit-qt-example cppunit-qttestrunner)
 
 if(Qt5_POSITION_INDEPENDENT_CODE)
-    set_target_properties(qt_example PROPERTIES POSITION_INDEPENDENT_CODE ON)
+    set_target_properties(cppunit-qt-example PROPERTIES POSITION_INDEPENDENT_CODE ON)
 endif()
 
 # Create install target
-install(TARGETS qt_example
-    RUNTIME DESTINATION bin
-    COMPONENT examples)
+install(TARGETS cppunit-qt-example
+    DESTINATION share/${CPPUNIT_VERSION}/examples COMPONENT examples)
