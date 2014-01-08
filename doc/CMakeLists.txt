@@ -36,5 +36,6 @@ add_custom_target(apidoc ${_cppunit_apidoc_all}
     COMMENT             "Generating HTML documentation")
 
 if(CPPUNIT_INSTALL_APIDOC)
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/cppunit DESTINATION share/doc)
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/cppunit/
+        DESTINATION share/${CPPUNIT_VERSION}/doc COMPONENT doc)
 endif()
