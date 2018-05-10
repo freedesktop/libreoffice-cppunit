@@ -29,6 +29,44 @@ set(cppunit-test-objlib_SOURCES
     XmlOutputterTest.cpp
     XmlUniformiser.cpp
     XmlUniformiserTest.cpp
+    BaseTestCase.h
+    CoreSuite.h
+    ExceptionTest.h
+    ExceptionTestCaseDecoratorTest.h
+    ExtensionSuite.h
+    FailureException.h
+    HelperMacrosTest.h
+    HelperSuite.h
+    MessageTest.h
+    MockFunctor.h
+    MockProtector.h
+    MockTestCase.h
+    MockTestListener.h
+    OrthodoxTest.h
+    OutputSuite.h
+    RepeatedTestTest.h
+    StringToolsTest.h
+    SubclassedTestCase.h
+    SynchronizedTestResult.h
+    TestAssertTest.h
+    TestCallerTest.h
+    TestCaseTest.h
+    TestDecoratorTest.h
+    TestFailureTest.h
+    TestPathTest.h
+    TestResultCollectorTest.h
+    TestResultTest.h
+    TestSetUpTest.h
+    TestSuiteTest.h
+    TestTest.h
+    ToolsSuite.h
+    TrackedTestCase.h
+    UnitTestToolSuite.h
+    XmlElementTest.h
+    XmlOutputterTest.h
+    XmlUniformiser.h
+    XmlUniformiserTest.h
+    assertion_traitsTest.h
 )
 
 # Create a common object library

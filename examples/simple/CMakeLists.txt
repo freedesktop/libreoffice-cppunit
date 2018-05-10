@@ -1,5 +1,6 @@
 set(cppunit-simple_SOURCES
     ExampleTestCase.cpp
+    ExampleTestCase.h
 )
 
 # Create the test executable

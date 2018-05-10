@@ -12,7 +12,7 @@
 #  CMAKE_REQUIRED_LIBRARIES = list of libraries to link
 
 macro(CHECK_CXX_SOURCEFILE_COMPILES SOURCEFILE VAR)
-  if("${VAR}" MATCHES "^${VAR}$")
+  if(NOT DEFINED "${VAR}")
     set(_FAIL_REGEX)
     set(_key)
     foreach(arg ${ARGN})

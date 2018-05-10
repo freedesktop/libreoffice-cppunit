@@ -44,26 +44,69 @@ set(cppunit_SOURCES
     XmlDocument.cpp
     XmlElement.cpp
     XmlOutputter.cpp
-    XmlOutputterHook.cpp)
+    XmlOutputterHook.cpp
+    DefaultProtector.h
+    ProtectorChain.h
+    ProtectorContext.h
+    # interface header at PROJECT_SOURCE_DIR
+    ${PROJECT_SOURCE_DIR}/include/cppunit/AdditionalMessage.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/Asserter.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/BriefTestProgressListener.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/CompilerOutputter.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/Exception.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/Message.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/Outputter.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/Portability.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/Protector.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/SourceLine.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/SynchronizedObject.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/Test.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestAssert.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestCaller.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestCase.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestComposite.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestFailure.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestFixture.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestLeaf.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestListener.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestPath.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestResult.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestResultCollector.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestRunner.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestSuccessListener.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TestSuite.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TextOutputter.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TextTestProgressListener.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TextTestResult.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/TextTestRunner.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/XmlOutputter.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/XmlOutputterHook.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/config/CppUnitApi.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/config/SelectDllLoader.h
+    ${PROJECT_SOURCE_DIR}/include/cppunit/config/SourcePrefix.h
+    # library config header at PROJECT_BINARY_DIR
+    ${PROJECT_BINARY_DIR}/include/cppunit/config-auto.h
+)
 
 # Platform specific source files
 # Microsoft Windows
 if(WIN32)
-    set(cppunit_SOURCES ${cppunit_SOURCES}
+    list(APPEND cppunit_SOURCES
         DllMain.cpp
-        Win32DynamicLibraryManager.cpp)
+        Win32DynamicLibraryManager.cpp
+        ${PROJECT_SOURCE_DIR}/include/cppunit/config/config-msvc6.h
+        ###NO! ${PROJECT_SOURCE_DIR}/include/cppunit/config/config-evc4.h
+    )
 # Unix based systems
 elseif(UNIX)
-    set(cppunit_SOURCES ${cppunit_SOURCES}
-        UnixDynamicLibraryManager.cpp)
-    if(CPPUNIT_HAVE_UNIX_SHL_LOADER)
-        set(cppunit_SOURCES ${cppunit_SOURCES}
-            ShlDynamicLibraryManager.cpp)
-    endif()
+    list(APPEND cppunit_SOURCES
+        UnixDynamicLibraryManager.cpp
+        ShlDynamicLibraryManager.cpp
+        ${PROJECT_SOURCE_DIR}/include/cppunit/config/config-mac.h
+    )
 # BeOS
 elseif(CMAKE_SYSTEM_NAME MATCHES "BeOS.*")
-    set(cppunit_SOURCES ${cppunit_SOURCES}
-        BeOsDynamicLibraryManager.cpp)
+    list(APPEND cppunit_SOURCES BeOsDynamicLibraryManager.cpp)
 endif()
 
 # Create the library

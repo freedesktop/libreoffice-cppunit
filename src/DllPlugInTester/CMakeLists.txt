@@ -1,7 +1,9 @@
 # Create plugin tester executable
 set(cppunit-plugintester_SOURCES
     CommandLineParser.cpp
-    DllPlugInTester.cpp)
+    CommandLineParser.h
+    DllPlugInTester.cpp
+)
 
 add_executable(cppunit-plugintester ${cppunit-plugintester_SOURCES})
 target_link_libraries(cppunit-plugintester cppunit)
@@ -13,8 +15,11 @@ if(CPPUNIT_BUILD_TESTING)
     # Create plugin tester test executable
     set(cppunit-plugintester-test_SOURCES
         CommandLineParser.cpp
+        CommandLineParser.h
         CommandLineParserTest.cpp
-        DllPlugInTesterTest.cpp)
+        CommandLineParserTest.h
+        DllPlugInTesterTest.cpp
+    )
 
     add_executable(cppunit-plugintester-test ${cppunit-plugintester-test_SOURCES})
     target_link_libraries(cppunit-plugintester-test cppunit)

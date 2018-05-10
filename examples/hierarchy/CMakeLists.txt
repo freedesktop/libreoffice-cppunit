@@ -3,6 +3,10 @@ set(cppunit-hierarchy-example-SOURCES
     BoardGame.cpp
     Chess.cpp
     main.cpp
+    BoardGame.h
+    Chess.h
+    BoardGameTest.h
+    ChessTest.h
 )
 
 # Create the test executable

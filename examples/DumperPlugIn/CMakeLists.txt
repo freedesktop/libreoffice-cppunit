@@ -2,6 +2,7 @@
 set(cppunit-dumper-plugin_SOURCES
     DumperListener.cpp
     DumperPlugIn.cpp
+    DumperListener.h
 )
 
 # Create the test plugin

@@ -65,7 +65,7 @@ if(MINGW AND ${CMAKE_SYSTEM_VERSION} VERSION_LESS "6.0")
     set(CPPUNIT_HAVE_SPRINTF_S FALSE CACHE INTERNAL "MinGW on Windows < 6.0 does not support this")
         message(STATUS "Building for ${CMAKE_SYSTEM} with MinGW - disabling Secure API")
 else()
-        check_symbol_exists(sprintf_s "stdio.h" CPPUNIT_HAVE_SPRINTF_S)
+    check_symbol_exists(sprintf_s "stdio.h" CPPUNIT_HAVE_SPRINTF_S)
 endif()
 
 ##########################
