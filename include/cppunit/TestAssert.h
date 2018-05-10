@@ -109,7 +109,7 @@ struct assertion_traits<double>
        const int precision = 15;
 #endif  // #ifdef DBL_DIG
        char buffer[128];
-#ifdef __STDC_SECURE_LIB__ // Use secure version with visual studio 2005 to avoid warning.
+#ifdef CPPUNIT_HAVE_SPRINTF_S // Use secure version with visual studio 2005 to avoid warning.
        sprintf_s(buffer, sizeof(buffer), "%.*g", precision, x); 
 #else	
        sprintf(buffer, "%.*g", precision, x); 

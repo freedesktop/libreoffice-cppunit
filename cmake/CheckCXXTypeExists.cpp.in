@@ -1,0 +1,6 @@
+#include <@CHECK_CXX_TYPE_EXISTS_HEADER@>
+
+int main()
+{
+    @CHECK_CXX_TYPE_EXISTS_TYPE@ type;
+}
