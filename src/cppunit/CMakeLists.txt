@@ -95,7 +95,6 @@ if(WIN32)
         DllMain.cpp
         Win32DynamicLibraryManager.cpp
         ${PROJECT_SOURCE_DIR}/include/cppunit/config/config-msvc6.h
-        ###NO! ${PROJECT_SOURCE_DIR}/include/cppunit/config/config-evc4.h
     )
 # Unix based systems
 elseif(UNIX)
@@ -104,9 +103,6 @@ elseif(UNIX)
         ShlDynamicLibraryManager.cpp
         ${PROJECT_SOURCE_DIR}/include/cppunit/config/config-mac.h
     )
-# BeOS
-elseif(CMAKE_SYSTEM_NAME MATCHES "BeOS.*")
-    list(APPEND cppunit_SOURCES BeOsDynamicLibraryManager.cpp)
 endif()
 
 # Create the library
