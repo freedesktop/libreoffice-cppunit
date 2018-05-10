@@ -6,6 +6,7 @@ set(cppunit-plugintester_SOURCES
 )
 
 add_executable(cppunit-plugintester ${cppunit-plugintester_SOURCES})
+set_target_properties(cppunit-plugintester PROPERTIES CXX_STANDARD ${CXX_STANDARD_DEFAULT})
 target_link_libraries(cppunit-plugintester cppunit)
 
 install(TARGETS cppunit-plugintester
@@ -22,6 +23,7 @@ if(CPPUNIT_BUILD_TESTING)
     )
 
     add_executable(cppunit-plugintester-test ${cppunit-plugintester-test_SOURCES})
+    set_target_properties(cppunit-plugintester-test PROPERTIES CXX_STANDARD ${CXX_STANDARD_DEFAULT})
     target_link_libraries(cppunit-plugintester-test cppunit)
 
     add_test(NAME cppunit-plugintester-test COMMAND cppunit-plugintester-test)

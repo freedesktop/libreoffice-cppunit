@@ -11,6 +11,7 @@ set(cppunit-hierarchy-example-SOURCES
 
 # Create the test executable
 add_executable(cppunit-hierarchy-example ${cppunit-hierarchy-example-SOURCES})
+set_target_properties(cppunit-hierarchy-example PROPERTIES CXX_STANDARD ${CXX_STANDARD_DEFAULT})
 target_link_libraries(cppunit-hierarchy-example cppunit)
 
 # Create install target

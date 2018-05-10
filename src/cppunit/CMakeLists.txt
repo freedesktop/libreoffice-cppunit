@@ -112,6 +112,7 @@ endif()
 # Create the library
 add_library(cppunit ${cppunit_SOURCES})
 target_link_libraries(cppunit ${CPPUNIT_COMMON_LIBS})
+set_target_properties(cppunit PROPERTIES CXX_STANDARD ${CXX_STANDARD_DEFAULT})
 
 set_target_properties(cppunit PROPERTIES
     VERSION ${CPPUNIT_SOVERSION_MAJOR}.${CPPUNIT_SOVERSION_MINOR}.${CPPUNIT_SOVERSION_PATCH}

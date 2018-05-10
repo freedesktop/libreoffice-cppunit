@@ -71,9 +71,11 @@ set(cppunit-test-objlib_SOURCES
 
 # Create a common object library
 add_library(cppunit-test-objlib OBJECT ${cppunit-test-objlib_SOURCES})
+set_target_properties(cppunit-test-objlib PROPERTIES CXX_STANDARD ${CXX_STANDARD_DEFAULT})
 
 # Create the test executable
 add_executable(cppunit-test-bin CppUnitTestMain.cpp $<TARGET_OBJECTS:cppunit-test-objlib>)
+set_target_properties(cppunit-test-bin PROPERTIES CXX_STANDARD ${CXX_STANDARD_DEFAULT})
 target_link_libraries(cppunit-test-bin cppunit)
 if(CPPUNIT_BUILD_TESTING)
     add_test(NAME cppunit-test-bin COMMAND cppunit-test-bin)

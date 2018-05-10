@@ -9,6 +9,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 
+set(CXX_STANDARD_DEFAULT "14")
+
 # Perform platform and compiler feature checks
 include(PlatformChecks)
 
@@ -16,6 +18,7 @@ include(PlatformChecks)
 include(Versioning)
 
 # Build options
+option(CMAKE_CXX_STANDARD_REQUIRED "Select if the value of `CXX_STANDARD` is a requirement."  ON)
 option(BUILD_SHARED_LIBS           "Build cppunit as shared or static library"                ON)
 option(CPPUNIT_BUILD_APIDOC        "Adds a build target for generating the API documentation" OFF)
 option(CPPUNIT_BUILD_QT_TESTRUNNER "Build the Qt test runner library"                         OFF)
